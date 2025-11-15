@@ -1,0 +1,42 @@
+MariaDB [(none)]> create database my_database;
+Query OK, 1 row affected (0,000 sec)
+
+MariaDB [(none)]> use my_database;
+Database changed
+
+MariaDB [my_database]> create table users (id int not null primary key auto_increment, name varchar(255) not null, age int not null, email varchar(255) not null);
+Query OK, 0 rows affected (0,005 sec)
+
+MariaDB [my_database]> insert into users values (null, 'John', 30, 'john@example.com');
+Query OK, 1 row affected (0,009 sec)
+
+MariaDB [my_database]> insert into users values (null, 'Alice', 25, 'alice@example.com');
+Query OK, 1 row affected (0,008 sec)
+
+MariaDB [my_database]> insert into users values (null, 'Bob', 35, 'bob@example.com');
+Query OK, 1 row affected (0,008 sec)
+
+MariaDB [my_database]> select * from users order by id;
++----+-------+-----+-------------------+
+| id | name  | age | email             |
++----+-------+-----+-------------------+
+|  1 | John  |  30 | john@example.com  |
+|  2 | Alice |  25 | alice@example.com |
+|  3 | Bob   |  35 | bob@example.com   |
++----+-------+-----+-------------------+
+3 rows in set (0,000 sec)
+
+MariaDB [my_database]> delete from users where name = 'Bob';
+Query OK, 1 row affected (0,008 sec)
+
+MariaDB [my_database]> select * from users where name = 'Bob';
+Empty set (0,000 sec)
+
+MariaDB [my_database]> select * from users order by id;
++----+-------+-----+-------------------+
+| id | name  | age | email             |
++----+-------+-----+-------------------+
+|  1 | John  |  30 | john@example.com  |
+|  2 | Alice |  25 | alice@example.com |
++----+-------+-----+-------------------+
+2 rows in set (0,000 sec)
