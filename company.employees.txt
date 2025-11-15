@@ -1,0 +1,17 @@
+MariaDB [sales_database]> create database company
+    -> ;
+Query OK, 1 row affected (0,000 sec)
+
+MariaDB [sales_database]> use company;
+Database changed
+MariaDB [company]> create table employees (id int not null primary key auto_increment, name varchar(255) not null, age int not null, position varchar(255) not null, salary decimal(10,2) not null);
+Query OK, 0 rows affected (0,025 sec)
+
+MariaDB [company]> create user employees@'localhost' identified by '123123123';
+Query OK, 0 rows affected (0,009 sec)
+
+MariaDB [company]> grant all on employees.* to employees@'localhost';
+Query OK, 0 rows affected (0,009 sec)
+
+MariaDB [company]> flush privileges;
+Query OK, 0 rows affected (0,001 sec)
